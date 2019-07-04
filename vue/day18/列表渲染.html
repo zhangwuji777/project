@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--v-->
+    <div id="app">
+        <!-- mustach语法 -->
+        <h3>列表渲染</h3>
+        <ul>
+            <li v-for="val of arr">{{val}}</li>
+        </ul>
+        <ul>
+            <!-- 插值表达式 -->
+            <li v-for="item of arr2">
+                <p>姓名:{{item.name}}</p>
+                <p>地址:{{item.address}}</p>
+            </li>
+        </ul>
+        <ul>
+            <li v-for='item of arr2'>
+                {{item.name}}/{{item.address}}
+                <ul>
+                    <li v-for="item of arr3">
+                            {{item.name}}/{item.address}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+let vm =new Vue({
+    //el:选择器
+    el:'#app',
+    data:{//m
+        arr:['aa','bb','cc'],
+        arr2:[
+            {id:1,name:'alex',address:'外滩18号'},
+            {id:2,name:'alex2',address:'外滩1号'},
+            {id:3,name:'alex2',address:'外滩1号'},
+        ],
+        arr3:[{id:1,name:'alex',address:'外滩18号',children:[
+            {id:1,name:'ooo',address:'霞飞路1号'},
+            {id:1,name:'ooo2',address:'霞飞路11号'},
+          ]},
+            {id:2,name:'alex2',address:'外滩1号'},
+            {id:3,name:'alex2',address:'外滩1号'},
+        ]
+    }
+
+})
+
+
+</script>
+</html>

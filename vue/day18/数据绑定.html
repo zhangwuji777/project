@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--v-->
+    <div id="app">
+        <!-- mustach语法 -->
+        <h3>{{ title }}</h3>
+        <h3>{{dp}}</h3>
+        <h4>指令: 特殊的html自定义属性</h4>
+           <!-- <div v-text="数据/实例属性"></div> -->
+        <div v-text='dp'></div>
+        <hr>
+        <h4>属性绑定: html的属性值动态化</h4>
+        <img :src="src" alt="">
+        <h4>属性绑定2: 属性名动态化</h4>
+        <img :src="src" v-bind:[propimg]='val1'>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+let vm =new Vue({
+    //el:选择器
+    el:'#app',
+    data:{//m
+        title:'标题',
+        dp:'段落',
+        arr:['aa','bb','cc'],
+        src:'https://cn.vuejs.org/images/logo.png',
+        propimg:'title',
+        val1:'呵呵'
+    }
+
+})
+
+
+</script>
+</html>

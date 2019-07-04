@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform:translateX(150px);
+        }
+        .v-enter-active
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="" @click.prevent="nameClass='login'">登录</a>
+        <a href=""  @click.prevent="nameClass='register'">注册</a>
+        <!--通过node 属性，设置组件切换的时候的模式-->
+        <transition mode='out-in'>
+                <component :is="nameClass"></component>
+        </transition>
+       
+    </div>
+
+</body>
+<script>
+    Vue.component('login',{
+        template:'<h3>登录页面</h3>',
+    })
+    Vue.component('register',{
+        template:'<h3>注册页面</h3>',
+    })
+var vm = new Vue({
+    el:"#app",
+    data:{
+        nameClass:'login'
+    }
+})
+
+</script>
+</html>

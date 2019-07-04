@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-resource.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type='button' value='读本地json' @click="localJson">
+        <input type="button" value="读php接口_get" @click="getPhp">
+        <input type="button" value="读php接口_post" @click="postPhp">
+        <input type="button" value="读local_node接口_get" @click="getNode"> 
+        <input type="button" value="读local_node接口_post" @click="postNode">
+        <input type="button" value="读线上_node接口" @click="onlineNode">
+        <hr>
+        <div v-html="msg"></div>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'空'
+        },
+        methods:{
+            localJson(){
+               this.$http({url:'./data/a.json'}).then(res=>this.msg = res.body.a)
+               .catch(res=>this.msg = res.body) 
+            }
+        }
+        
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <!-- <div id="app">
+        <home-header></home-header>
+        <warp></warp>
+    </div> -->
+    <div id="app">
+        <v-header></v-header>
+    </div>
+    <template id="header">
+        <div class="header">header123</div>
+    </template>
+    <script>
+    let header = {
+        
+        template:"#header"
+    }
+    let vm = new Vue({
+        el:"#app",
+
+        components:{
+            "v-header":header
+        }
+        
+    })
+    </script>
+    <style>
+            .header{background: red}
+            </style>
+</body>
+<script>
+// let homeHeader = {
+//     template:'<div class="header">HomeHeader</div>'
+// };
+// let Wrap={
+//     template:'<div class="heh"><div class="wrap">wrap2</div><div class="wrap">wrap</div></div>'
+// }
+// let vm = new Vue({
+//     el:'#app',
+//     data:{msg:'数据'},
+//     components:{
+//         'home-header':homeHeader,
+//         'warp':Wrap
+//     }
+
+// })
+</script>
+</html>

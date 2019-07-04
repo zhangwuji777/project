@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>{{title}}</h3>
+        <input type="text" v-model="iptUser">
+        <input type="text" v-model='iptContent'>
+        <hr>
+        <input type="button" value="提交" v-on:click="add">
+        <hr>
+        <ul>
+            <li v-show="list.length===0">暂无数据</li>
+            <li v-for='(item,index) of list'>
+                <span>{{item.content}}</span>
+                <em>{{item.name}}</em>
+                ----{{index}}
+                <a href="#" @click='del(index)'>删除</a>
+                <a href="#" @click='check(index,"qq")'>修改</a>
+
+            </li>
+        </ul>
+        <input type="button" value="清空" @click="clear()">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            title:'留言板',
+            iptUser:'',
+            iptContent:'',
+            list:[
+                {id:1,name:'alex',content:'在吗'},
+                {id:2,name:'ppp',content:'不在啊'}
+            ]
+        },
+        methods:{
+            add(){
+                this.list.push({
+                    id:this.list.length+1,
+                    name:this.iptUser,
+                    content:this.iptContent
+                })
+                this.iptUser=this.iptContent ='';
+            },
+            del(index){
+                this.list.splice(index,1)
+            },
+            check(index,value){
+                this.list[index].content = value
+            },
+            clear(){
+                this.list=[]
+            }
+        }
+    })
+
+
+</script>
+</html>

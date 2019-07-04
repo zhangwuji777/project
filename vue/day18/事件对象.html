@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <h4>事件绑定</h4>
+       <input type="button" value="事件默认传递" @click="show1">
+       <input type="button" value="传参数" @click="show2(12)" />
+       <input type="button" value="传参数_" @click="show2(12,$event)">
+    </div>
+    
+</body>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            num:110,
+            bl:true
+        },
+        methods:{
+           
+            show1(ev){
+         console.log('事件对象',ev)
+        },
+        show2(arg,ev){
+            console.log('参数事件对象',arg,ev)
+        }
+            
+        }
+    })
+
+</script>
+</html>

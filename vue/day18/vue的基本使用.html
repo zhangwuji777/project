@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <!--v-->
+    <div id="app">
+        <!-- mustach语法 -->
+        <h3>{{ title }}</h3>
+        <h3>{{dp}}</h3>
+        <h3>{{title}}</h3>
+        <div>{{arr}}</div>
+        <div>{{un}}</div>
+        <div>{{nu}}</div>
+        <div>/{{str2}}/</div>
+        <div>{{bl}}</div>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+let vm =new Vue({
+    //el:选择器
+    el:'#app',
+    data:{//m
+        title:'标题',
+        dp:'段落',
+        arr:['aa','bb','cc'],
+        un:undefined,
+        nu:null,
+        str:'',
+        bl:true,
+        str2:'  '
+    }
+
+})
+
+
+</script>
+</html>

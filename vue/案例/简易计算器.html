@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+    <div id="app">
+        <input type="text" v-model="n1">
+        <select v-model="opt">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input type="text" v-model="n2">
+        <input type="button" value="=" @click="js">
+        <input type="text" v-model="n3">
+    </div>
+<body>
+    <script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            n1:0,
+            n2:0,
+            opt:'-',
+            n3:0
+        },
+        methods:{
+            // js(){
+            //     switch(this.opt){
+            //         case "+":this.n3=Number(this.n1)+Number(this.n2)
+            //         break;
+            //         case "-":this.n3=Number(this.n1)-Number(this.n2)
+            //         break;
+            //         case "*":this.n3=Number(this.n1)*Number(this.n2)
+            //         break;
+            //         case "/":this.n3=Number(this.n1)/Number(this.n2)
+            //         break;
+            //     }
+            // }
+            js(){
+                //注意这是投机取巧的方式，正式的开发尽量少用
+                
+                var n4="Number(this.n1)"+this.opt+"Number(this.n2)"
+                this.n3=eval(n4)
+            }
+           
+        }
+    })
+    
+    </script>
+</body>
+</html>

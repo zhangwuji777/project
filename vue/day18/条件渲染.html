@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+        <!-- V -->
+        <div id="app">
+          
+          <h3>条件渲染</h3>
+          <!-- <div v-show="布尔值">box</div> -->
+          <div v-show="false">box1</div>
+          <div v-show="bl">box2</div>
+          <div v-show="bl2">box2</div>
+          <div v-show="bl3">box2</div>
+          <div v-show="bl4">box2</div>
+          <div v-show="bl5">box4</div>
+          <div v-show="bl6">box2</div>
+
+        </div>
+</body>      
+        <script>
+          let vm = new Vue({
+            // 选项
+            // el:'选择器',
+            el:'#app',
+            data:{//M   初始化数据的地方
+                bl:false,
+                bl2:'',
+                bl3:null,
+                bl4:undefined,
+                bl5:[],
+                bl6:0
+            }
+          });
+          
+        </script>
+        
+      
+      </html>

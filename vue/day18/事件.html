@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <h4>事件绑定</h4>
+        <div>{{num}}</div>
+        <div v-show="bl">box</div>
+        <input type="button" @click="show1" value="按钮">
+    </div>
+    
+</body>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            num:110,
+            bl:true
+        },
+        methods:{
+           
+            show1(){
+          console.log('this->vm',this)
+        }
+            
+        }
+    })
+
+</script>
+</html>

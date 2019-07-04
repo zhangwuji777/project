@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <my-com1></my-com1>
+    </div>
+    <div id="app2">
+            <my-com1></my-com1>
+            <login></login>
+    </div>
+    <template id="tmp2">
+            <h1>这是私有的login组件</h1>
+    </template>
+   <template id="tmp1">
+       <div>
+            <h3>这是通过template元素在外部定义组件的结构<h3>
+            <p>哈哈哈不听了自学开始</p>
+       </div>
+       
+   </template>
+   <script>
+     // 第三种创创建方式
+     Vue.component('myCom1',{
+       template:'#tmp1'
+   })
+   </script>
+    <script>
+    //     //1.1使用Vue.extend来创建全局的Vue组件(定义)
+    // var com1=Vue.extend({
+    //     template:'<h3>这是使用Vue.extend创建的组件</h3>'
+    // })
+    // //1.2使用Vue.component（注册引用）
+    // Vue.component('myCom1',com1)
+    // console.log(vm)
+    //合起来写
+    // Vue.component('myCom1',Vue.extend({
+    //     template:'<h3>这是使用Vue.extend创建的组件</h3>'
+    // }))
+    //第二种方式
+    //没有智能提示
+    //主要：不论哪种方式创建的组件，组件的template属性指向的内容必须有且只要一个根元素
+    // Vue.component('myCom1',{
+    //     template:'<div><h3>这是使用Vue.extend创建的组件</h3><h2>这是使用Vue.extend创建的组件</h2></div>'
+    // })
+    var vm=new Vue({
+        el:'#app'
+    }) 
+ 
+    // var vm=new Vue({
+    //     el:'#app2',
+    //     components:{
+    //         //定义实例内部私有组件
+    //         login:{
+    //             template:'<h1>这是私有的login组件</h1>'
+    //         }
+    //     }
+    // }) 
+    var vm=new Vue({
+        el:'#app2',
+        components:{
+            //定义实例内部私有组件
+            login:{
+                template:'#tmp2'
+            }
+        }
+    }) 
+    
+    </script>
+</body>
+</html>
